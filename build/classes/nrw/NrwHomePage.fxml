@@ -318,10 +318,10 @@
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </padding>
                                           </HBox>
-                                          <TableView fx:id="burstRealTable" VBox.vgrow="ALWAYS">
+                                          <TableView fx:id="burstRealTable" editable="true" VBox.vgrow="ALWAYS">
                                             <columns>
                                               <TableColumn fx:id="burstNoCol" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" text="Burst No" />
-                                              <TableColumn fx:id="bustDischargeCol" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" text="Burst Discharge" />
+                                              <TableColumn fx:id="burstDischargeCol" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" text="Burst Discharge" />
                                                 <TableColumn fx:id="burstDurationCol" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" text="Burst Duration" />
                                                 <TableColumn fx:id="burstLosesCol" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" text="Looses (m^3)" />
                                                 <TableColumn fx:id="burstActionCol" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" />
@@ -385,7 +385,7 @@
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </padding>
                                           </HBox>
-                                          <TableView fx:id="pipeDetailsTable" VBox.vgrow="ALWAYS">
+                                          <TableView fx:id="pipeDetailsTable" editable="true" VBox.vgrow="ALWAYS">
                                              <columns>
                                                 <TableColumn fx:id="pipeIdCol" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" text="Id" />
                                                 <TableColumn fx:id="pipeNode1Col" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="150.0" text="Node 1" />

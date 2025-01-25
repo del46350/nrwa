@@ -17,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
 import nrw.models.BurstRealData;
 import nrw.models.PipeDetails;
+import nrw.utils.DoubleConverter;
 import services.BurstRealDataService;
 import services.PipeDetailsService;
 
@@ -31,7 +32,7 @@ public class NrwController implements Initializable {
     @FXML
     private TableColumn<BurstRealData, Integer> burstNoCol;
     @FXML
-    private TableColumn<BurstRealData, Double> bustDischargeCol;
+    private TableColumn<BurstRealData, Double> burstDischargeCol;
     @FXML
     private TableColumn<BurstRealData, Double> burstDurationCol;
     @FXML
@@ -70,7 +71,7 @@ public class NrwController implements Initializable {
                   
         pipeDetailsTable.setItems(pipeDetails);
         
-        enableEditInColumns();
+        enableEditInPipeColumns();
     }
     
     private void setPipeDetailsTableValueCellFactory() {
@@ -105,8 +106,21 @@ public class NrwController implements Initializable {
         );
     }
 
-    private void enableEditInColumns() {
-        //pipeActionCol.setCellFactory(TextFieldTableCell.forTableColumn());
+    private void enableEditInPipeColumns() {
+        pipeNode1Col.setCellFactory(TextFieldTableCell.forTableColumn(
+            new DoubleConverter()));
+        
+        pipeNode2Col.setCellFactory(TextFieldTableCell.forTableColumn(
+            new DoubleConverter()));
+        
+        pipeDiameterCol.setCellFactory(TextFieldTableCell.forTableColumn(
+            new DoubleConverter()));
+        
+        pipeRoughnessCol.setCellFactory(TextFieldTableCell.forTableColumn(
+            new DoubleConverter()));
+        
+        pipeLengthCol.setCellFactory(TextFieldTableCell.forTableColumn(
+            new DoubleConverter()));
 
         //pipeActionCol.setOnEditCommit(e -> System.out.println(e.getNewValue()));
 
@@ -120,7 +134,7 @@ public class NrwController implements Initializable {
                   
         burstRealTable.setItems(burstRealData);
         
-        enableEditInColumns();
+        enableEditInBurstColumns();
     }
     
     private void setBurstTableValueCellFactory() {
@@ -139,9 +153,23 @@ public class NrwController implements Initializable {
                 -> p.getValue().burstLoses.asObject()
         );
         
-        bustDischargeCol.setCellValueFactory(
+        burstDischargeCol.setCellValueFactory(
                 (CellDataFeatures<BurstRealData, Double> p)
                 -> p.getValue().burstDischarge.asObject()
         );
     }   
+    
+    private void enableEditInBurstColumns() {
+        burstDurationCol.setCellFactory(TextFieldTableCell.forTableColumn(
+            new DoubleConverter()));
+        
+        burstLosesCol.setCellFactory(TextFieldTableCell.forTableColumn(
+            new DoubleConverter()));
+        
+        burstDischargeCol.setCellFactory(TextFieldTableCell.forTableColumn(
+            new DoubleConverter()));
+
+        //burstDurationCol.setOnEditCommit(e -> System.out.println(e.getNewValue()));
+
+    }
 }
