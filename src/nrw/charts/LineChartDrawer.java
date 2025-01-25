@@ -16,32 +16,25 @@ import javafx.scene.chart.XYChart;
 public class LineChartDrawer {
     
     public LineChart<Number, Number> DrawLineChart() {
-        final NumberAxis xAxis = new NumberAxis();
-        final NumberAxis yAxis = new NumberAxis();
-        
-        xAxis.setLabel("Apparent losses (M^3/Yr)");
-        //creating the chart
-        final LineChart<Number,Number> lineChart = 
-                new LineChart<Number,Number>(xAxis,yAxis);
-                
-        lineChart.setTitle("Apparent losses reduction vs cost");
-        //defining a series
-        XYChart.Series series = new XYChart.Series();
-        series.setName("Cost (MWK)");
-        
-        //populating the series with data
-        series.getData().add(new XYChart.Data(1, 23));
-        series.getData().add(new XYChart.Data(2, 14));
-        series.getData().add(new XYChart.Data(3, 15));
-        series.getData().add(new XYChart.Data(4, 24));
-        series.getData().add(new XYChart.Data(5, 34));
-        series.getData().add(new XYChart.Data(6, 36));
-        series.getData().add(new XYChart.Data(7, 22));
-        series.getData().add(new XYChart.Data(8, 45));
-        series.getData().add(new XYChart.Data(9, 43));
-        series.getData().add(new XYChart.Data(10, 17));
-        series.getData().add(new XYChart.Data(11, 29));
-        series.getData().add(new XYChart.Data(12, 25));
+        NumberAxis xAxis = new NumberAxis();
+        xAxis.setLabel("Apparent losses (M^3/Y)");
+
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Cost (MWK)");
+
+        LineChart lineChart = new LineChart(xAxis, yAxis);
+
+        XYChart.Series dataSeries1 = new XYChart.Series();
+        dataSeries1.setName("Apparent losses reduction vs cost.");
+
+        dataSeries1.getData().add(new XYChart.Data( 1, 567));
+        dataSeries1.getData().add(new XYChart.Data( 5, 612));
+        dataSeries1.getData().add(new XYChart.Data(10, 800));
+        dataSeries1.getData().add(new XYChart.Data(20, 780));
+        dataSeries1.getData().add(new XYChart.Data(40, 810));
+        dataSeries1.getData().add(new XYChart.Data(80, 850));
+
+        lineChart.getData().add(dataSeries1);
         
         return lineChart;
     }
