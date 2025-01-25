@@ -11,10 +11,13 @@ import javafx.beans.property.BooleanProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.VBox;
+import nrw.charts.LineChartDrawer;
 import nrw.models.BurstRealData;
 import nrw.models.PipeDetails;
 import nrw.utils.DoubleConverter;
@@ -55,12 +58,16 @@ public class NrwController implements Initializable {
     private TableColumn<PipeDetails, Double> pipeRoughnessCol;
     @FXML
     private TableColumn<PipeDetails, BooleanProperty> pipeActionCol;
+    @FXML
+    private VBox reportsVBox;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        initializePipeDetailsTable();
        
        initializeBurstDataTable();
+       
+       reportsVBox.getChildren().add(new LineChartDrawer().DrawLineChart());
     }
 
     private void initializePipeDetailsTable() {
