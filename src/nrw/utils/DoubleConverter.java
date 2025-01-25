@@ -22,7 +22,7 @@ public class DoubleConverter extends StringConverter<Double> {
     public Double fromString(String string) {
         try {
             return Double.valueOf(string);
-        } catch (Exception ex) {
+        } catch (NumberFormatException ex) {
             return null;
         }
     }

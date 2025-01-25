@@ -10,6 +10,7 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import nrw.models.PipeDetails;
+import nrw.utils.SimpleNumberFormatter;
 
 /**
  *
@@ -23,7 +24,12 @@ public class PipeDetailsService {
                 .observableArrayList();
         
         for(int i = 1; i < 11; i++) {
-            pipeDetails.add(new PipeDetails(i, 1, 3, 59, 300, 100));
+            pipeDetails.add(new PipeDetails(i, 
+                    SimpleNumberFormatter.FormatDouble(1 + i), 
+                    SimpleNumberFormatter.FormatDouble(3 + i), 
+                    SimpleNumberFormatter.FormatDouble(59 + i), 
+                    SimpleNumberFormatter.FormatDouble(300 + i), 
+                    SimpleNumberFormatter.FormatDouble(100 + i)));
         }
         
         return pipeDetails;

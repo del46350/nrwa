@@ -5,22 +5,30 @@
  */
 package services;
 
+import java.math.BigDecimal;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import nrw.models.BurstRealData;
+import nrw.utils.SimpleNumberFormatter;
 
 /**
  *
  * @author Kadzitaye.m
  */
 public class BurstRealDataService {
+    
+    
+    
     public ObservableList<BurstRealData> getSampleBurstDataDetails()
     {
         ObservableList<BurstRealData> burstRealData = FXCollections
                 .observableArrayList();
         
         for(int i = 1; i < 11; i++) {
-            burstRealData.add(new BurstRealData(i, 1.983, 72.073, 514.70));
+            burstRealData.add(new BurstRealData(i, 
+                    SimpleNumberFormatter.FormatDouble(1.983 + Double.valueOf(i)), 
+                    SimpleNumberFormatter.FormatDouble(72.073 + Double.valueOf(i)), 
+                    SimpleNumberFormatter.FormatDouble(514.70 + Double.valueOf(i))));
         }
         
         return burstRealData;
